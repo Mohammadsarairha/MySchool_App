@@ -41,9 +41,9 @@
         app:layout_constraintGuide_percent="1" />
 
     <ListView
+        android:id="@+id/student_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/guideline1"
-        />
+        app:layout_constraintTop_toTopOf="@id/guideline1" />
 
 </android.support.constraint.ConstraintLayout>

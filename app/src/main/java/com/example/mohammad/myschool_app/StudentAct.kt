@@ -15,24 +15,25 @@ class StudentAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student)
 
-        var url:String=Web_info.based_Url+"bus_students_get.php"
+        var url: String = Web_info.based_Url + "bus_students_get.php"
 
-        var studentlist=ArrayList<String>()
+        var studentlist = ArrayList<String>()
 
-        var rq= Volley.newRequestQueue(this)
+        var rq = Volley.newRequestQueue(this)
 
-        var sr= JsonArrayRequest(Request.Method.GET,url,
-                null,Response.Listener { response ->
+        var sr = JsonArrayRequest(Request.Method.GET, url,
+                null, Response.Listener { response ->
 
-            for (x in 0..response.length()-1){
-                studentlist.add(response.getJSONObject(x).getString("bus_name+")+"\n"+response.getJSONObject(x).getString("st_name+"))
+            for (x in 0..response.length() - 1) {
+                studentlist.add(response.getJSONObject(x).getString("bus_name") + "\n" +
+                        response.getJSONObject(x).getString("st_name"))
             }
 
-            var adp=ArrayAdapter(this,android.R.layout.simple_list_item_1,studentlist)
-            student_lv.adapter=adp
+            var adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, studentlist)
+            student_lv.adapter = adp
         },
-                Response.ErrorListener { error ->  }
-                )
+                Response.ErrorListener { error -> }
+        )
 
         rq.add(sr)
     }

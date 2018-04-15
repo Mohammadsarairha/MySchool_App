@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
@@ -18,31 +19,32 @@ class LoginAct : AppCompatActivity() {
 
         login_button.setOnClickListener {
 
-            var url:String=Web_info.based_Url+"user_type_select.php?"+"user_phone="+login_phone.text.toString()
+            var url: String = Web_info.based_Url + "user_type_select.php?" + "user_phone=" + login_phone.text.toString()
 
-            var rq= Volley.newRequestQueue(this)
+            var rq = Volley.newRequestQueue(this)
 
-            var sr= StringRequest(Request.Method.GET,url,
+            var sr = JsonObjectRequest(Request.Method.GET, url, null,
                     Response.Listener { response ->
-                        when(response){
-                            "0"-> {
+                        when (response.getString("user_type")) {
+                            "0" -> {
                                 var i = Intent(this, StudentAct::class.java)
                                 startActivity(i)
                             }
-                            "1"->{
+                            "1" -> {
                                 var i = Intent(this, StudentAct::class.java)
                                 startActivity(i)
                             }
-                            "2"->{
+                            "2" -> {
                                 var i = Intent(this, MapsAct::class.java)
                                 startActivity(i)
                             }
-                            else -> Toast.makeText(this,"Enter valid Number",Toast.LENGTH_SHORT).show()
+                            else -> Toast.makeText(this, "Enter valid Number", Toast.LENGTH_SHORT).show()
                         }
                     },
-                    Response.ErrorListener { error ->  })
+                    Response.ErrorListener { error -> })
 
             rq.add(sr)
-    }
+        }
 
-}}
+    }
+}

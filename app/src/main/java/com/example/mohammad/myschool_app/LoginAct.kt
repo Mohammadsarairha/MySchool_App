@@ -26,7 +26,7 @@ class LoginAct : AppCompatActivity() {
                     Response.Listener { response ->
                         when(response){
                             "0"-> {
-                                var i = Intent(this, MapsAct::class.java)
+                                var i = Intent(this, StudentAct::class.java)
                                 startActivity(i)
                             }
                             "1"->{

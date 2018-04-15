@@ -6,6 +6,6 @@ package com.example.mohammad.myschool_app
 class Web_info {
 
     companion object {
-        var based_Url:String="http://169.254.145.182/myschool_php/prl/"
+        var based_Url:String="https://penial-allocation.000webhostapp.com/PRL/"
     }
 }

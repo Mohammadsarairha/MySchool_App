@@ -18,7 +18,7 @@ class LoginAct : AppCompatActivity() {
 
         login_button.setOnClickListener {
 
-            var url:String=Web_info.based_Url+"user_type_select.php"
+            var url:String=Web_info.based_Url+"user_type_select.php?"+"user_phone="+login_phone.text.toString()
 
             var rq= Volley.newRequestQueue(this)
 

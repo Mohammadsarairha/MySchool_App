@@ -1,7 +1,9 @@
 package com.example.mohammad.myschool_app
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -20,14 +22,25 @@ class LoginAct : AppCompatActivity() {
 
             var rq= Volley.newRequestQueue(this)
 
-            var sr=object: StringRequest(Request.Method.GET,url,
+            var sr= StringRequest(Request.Method.GET,url,
                     Response.Listener { response ->
-                        if (response=="0"){
-
+                        when(response){
+                            "0"-> {
+                                var i = Intent(this, MapsAct::class.java)
+                                startActivity(i)
+                            }
+                            "1"->{
+                                var i = Intent(this, StudentAct::class.java)
+                                startActivity(i)
+                            }
+                            "2"->{
+                                var i = Intent(this, MapsAct::class.java)
+                                startActivity(i)
+                            }
+                            else -> Toast.makeText(this,"Enter valid Number",Toast.LENGTH_SHORT).show()
                         }
                     },
                     Response.ErrorListener { error ->  })
-
 
             rq.add(sr)
     }

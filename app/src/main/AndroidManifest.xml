@@ -39,8 +39,7 @@
             android:name=".MapsAct"
             android:label="@string/title_activity_maps" />
         <activity android:name=".StudentAct" />
-
-
+        <activity android:name=".AdminActivity"></activity>
     </application>
 
 </manifest>

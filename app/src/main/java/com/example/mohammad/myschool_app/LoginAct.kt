@@ -26,6 +26,7 @@ class LoginAct : AppCompatActivity() {
 
             var sr = JsonObjectRequest(Request.Method.GET, url, null,
                     Response.Listener { response ->
+
                         when (response.getString("user_type")) {
                             "0" -> {
                                 Web_info.usertype="0"
@@ -45,7 +46,6 @@ class LoginAct : AppCompatActivity() {
                                 startActivity(i)
                                 finish()
                             }
-                            else -> Toast.makeText(this, "Enter valid Number", Toast.LENGTH_SHORT).show()
                         }
                     },
                     Response.ErrorListener { error -> })

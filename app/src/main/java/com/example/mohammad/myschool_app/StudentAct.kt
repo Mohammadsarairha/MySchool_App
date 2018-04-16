@@ -15,6 +15,7 @@ class StudentAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student)
 
+
         var url: String = Web_info.based_Url + "bus_students_get.php"
 
         var studentlist = ArrayList<String>()

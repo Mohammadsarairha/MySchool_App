@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.mohammad.myschool_app.StudentAct">
 
-    <com.eightbitlab.bottomnavigationbar.BottomNavigationBar
-        android:id="@+id/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:background="#000"
-        app:activeTabColor="#fff"
-        app:inactiveTabColor="@color/bottomBarDefaultTextColor"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        tools:layout_editor_absoluteX="0dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline1"

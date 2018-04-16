@@ -7,9 +7,10 @@ import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
+
+
 
 class LoginAct : AppCompatActivity() {
 
@@ -27,16 +28,22 @@ class LoginAct : AppCompatActivity() {
                     Response.Listener { response ->
                         when (response.getString("user_type")) {
                             "0" -> {
-                                var i = Intent(this, StudentAct::class.java)
+                                Web_info.usertype="0"
+                                var i =Intent(this,StudentAct::class.java)
                                 startActivity(i)
+                                finish()
                             }
                             "1" -> {
-                                var i = Intent(this, StudentAct::class.java)
+                                Web_info.usertype="1"
+                                var i =Intent(this,StudentAct::class.java)
                                 startActivity(i)
+                                finish()
                             }
                             "2" -> {
-                                var i = Intent(this, MapsAct::class.java)
+                                Web_info.usertype="2"
+                                var i =Intent(this,MapsAct::class.java)
                                 startActivity(i)
+                                finish()
                             }
                             else -> Toast.makeText(this, "Enter valid Number", Toast.LENGTH_SHORT).show()
                         }
@@ -44,6 +51,7 @@ class LoginAct : AppCompatActivity() {
                     Response.ErrorListener { error -> })
 
             rq.add(sr)
+
         }
 
     }

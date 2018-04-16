@@ -1,5 +1,6 @@
 package com.example.mohammad.myschool_app
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -32,6 +33,7 @@ class MapsAct : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -39,5 +41,7 @@ class MapsAct : AppCompatActivity(), OnMapReadyCallback {
         val jordan = LatLng(30.5852, 36.2384)
         mMap.addMarker(MarkerOptions().position(jordan).title("Marker in Jordan"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(jordan))
+
+        mMap.isMyLocationEnabled = true
     }
 }

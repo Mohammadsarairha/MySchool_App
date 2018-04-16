@@ -30,7 +30,7 @@ class LoginAct : AppCompatActivity() {
                         when (response.getString("user_type")) {
                             "0" -> {
                                 Web_info.usertype="0"
-                                var i =Intent(this,StudentAct::class.java)
+                                var i =Intent(this,AdminActivity::class.java)
                                 startActivity(i)
                                 finish()
                             }

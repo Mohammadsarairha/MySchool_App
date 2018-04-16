@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layoutDirection="rtl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00a3f9"
         android:layout_marginBottom="8dp"
-        app:menu="@menu/bn_menu"
+        android:layout_marginTop="8dp"
+        android:background="#00a3f9"
+        android:layoutDirection="rtl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:menu="@menu/bn_menu">
 
     </android.support.design.widget.BottomNavigationView>
+
 </android.support.constraint.ConstraintLayout>

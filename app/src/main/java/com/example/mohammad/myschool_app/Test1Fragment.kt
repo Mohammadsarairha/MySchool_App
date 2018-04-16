@@ -25,5 +25,4 @@ class Test1Fragment : Fragment() {
         return inflater.inflate(R.layout.fragment_test1, container, false)
     }
 
-
 }

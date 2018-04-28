@@ -7,7 +7,6 @@
     tools:context=".TestActivity">
 
     <RelativeLayout
-        android:background="#7b1f1f"
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="480dp"
@@ -21,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

@@ -12,7 +12,7 @@ class TestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         val tr = fragmentManager.beginTransaction()
-        val obj = Test1Fragment()
+        val obj = TestFragment()
         tr.replace(R.id.fragmentContainer, obj).addToBackStack(Test1Fragment().tag).commit()
     }
 }

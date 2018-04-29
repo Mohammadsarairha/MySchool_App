@@ -1,13 +1,10 @@
 package com.example.mohammad.myschool_app
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.support.annotation.NonNull
-import android.support.design.widget.BottomNavigationView
-import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_test.*
 import android.content.Intent
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_test.*
 
 
 class TestActivity : AppCompatActivity() {

@@ -10,9 +10,5 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
-
-        val tr = fragmentManager.beginTransaction()
-        val obj = TestFragment()
-        tr.replace(R.id.fragmentContainer, obj).addToBackStack(Test1Fragment().tag).commit()
     }
 }

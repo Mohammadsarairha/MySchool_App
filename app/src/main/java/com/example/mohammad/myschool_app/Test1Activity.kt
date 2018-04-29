@@ -29,6 +29,6 @@ class Test1Activity : AppCompatActivity() {
 
         }
 
-        bnv.selectedItemId = R.id.student;
+        bnv.selectedItemId = R.id.student
     }
 }

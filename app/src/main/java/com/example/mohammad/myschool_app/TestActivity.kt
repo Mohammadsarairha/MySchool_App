@@ -7,6 +7,7 @@ import android.support.annotation.NonNull
 import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_test.*
+import android.content.Intent
 
 
 class TestActivity : AppCompatActivity() {
@@ -19,10 +20,12 @@ class TestActivity : AppCompatActivity() {
         bnv.setOnNavigationItemSelectedListener { item ->
             when {
                 item.itemId == R.id.bus -> {
-
+                    val intent = Intent(this, TestActivity::class.java)
+                    startActivity(intent)
                 }
                 item.itemId == R.id.student -> {
-
+                    val intent = Intent(this, Test1Activity::class.java)
+                    startActivity(intent)
                 }
             }
 

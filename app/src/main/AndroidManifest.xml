@@ -35,17 +35,17 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".StudentAct" />
         <activity android:name=".AdminActivity" />
-        <activity android:name=".TestActivity">
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Test1Activity" />
+        <activity
+            android:name=".TestMapsActivity"
+            android:label="@string/title_activity_test_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Test1Activity" />
-        <activity
-            android:name=".TestMapsActivity"
-            android:label="@string/title_activity_test_maps" />
     </application>
 
 </manifest>

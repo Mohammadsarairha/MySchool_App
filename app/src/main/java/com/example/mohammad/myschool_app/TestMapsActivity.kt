@@ -12,6 +12,12 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_test_maps.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+
 
 class TestMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -43,6 +49,30 @@ class TestMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         }
 
+
+        // Write a message to the database lat value
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("buses").child("bus1")
+
+        // Read from the database the bus location
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val lat = dataSnapshot.child("lat").value.toString().toDouble()
+                val lang = dataSnapshot.child("lang").value.toString().toDouble()
+
+                // Add a marker in bus location and move the camera
+                val bus = LatLng(lat, lang)
+                mMap.addMarker(MarkerOptions().position(bus).title("bus location"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 16.0f))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                /*// Failed to read value
+                Log.w(FragmentActivity.TAG, "Failed to read value.", error.toException())*/
+            }
+        })
     }
 
     /**

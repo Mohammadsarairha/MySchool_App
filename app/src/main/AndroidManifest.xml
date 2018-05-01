@@ -34,12 +34,14 @@
             android:name=".MapsAct"
             android:label="@string/title_activity_maps" />
         <activity android:name=".StudentAct" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".TestActivity" />
         <activity android:name=".Test1Activity" />
         <activity
             android:name=".TestMapsActivity"
-            android:label="@string/title_activity_test_maps">
+            android:label="@string/title_activity_test_maps"></activity>
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

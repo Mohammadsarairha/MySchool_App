@@ -35,7 +35,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                     startActivity(intent)
                 }
                 item.itemId == R.id.student -> {
-                    val intent = Intent(this, Test1Activity::class.java)
+                    val intent = Intent(this, StudentAct::class.java)
                     startActivity(intent)
                 }
             }

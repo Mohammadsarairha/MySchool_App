@@ -1,5 +1,6 @@
 package com.example.mohammad.myschool_app
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -25,7 +26,7 @@ class StudentAct : AppCompatActivity() {
         var sr = JsonArrayRequest(Request.Method.GET, url,
                 null, Response.Listener { response ->
 
-            for (x in 0..response.length() - 1) {
+            for (x in 0 until response.length()) {
                 studentlist.add(response.getJSONObject(x).getString("bus_name") + "\n" +
                         response.getJSONObject(x).getString("st_name"))
             }
@@ -37,5 +38,25 @@ class StudentAct : AppCompatActivity() {
         )
 
         rq.add(sr)
+
+        //bottom navigation view on selection
+        bnv.setOnNavigationItemSelectedListener { item ->
+            when {
+                item.itemId == R.id.bus -> {
+                    val intent = Intent(this, AdminActivity::class.java)
+                    startActivity(intent)
+                }
+                item.itemId == R.id.student -> {
+                    val intent = Intent(this, StudentAct::class.java)
+                    startActivity(intent)
+                }
+            }
+
+            item.isChecked = true
+
+            false
+
+        }
+
     }
 }

@@ -65,7 +65,7 @@ class TestMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 // Add a marker in bus location and move the camera
                 val bus = LatLng(lat, lang)
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 16.0f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 13.0f))
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -90,6 +90,6 @@ class TestMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         val jordan = LatLng(32.003806, 35.952540)
         mMap.addMarker(MarkerOptions().position(jordan).title("Marker in Amman"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(jordan))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jordan, 12.0f))
     }
 }

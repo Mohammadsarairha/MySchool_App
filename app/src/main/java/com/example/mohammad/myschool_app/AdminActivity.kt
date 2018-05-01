@@ -1,5 +1,6 @@
 package com.example.mohammad.myschool_app
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -9,6 +10,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_admin.*
 
 class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -21,6 +27,50 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        bnv.setOnNavigationItemSelectedListener { item ->
+            when {
+                item.itemId == R.id.bus -> {
+                    val intent = Intent(this, AdminActivity::class.java)
+                    startActivity(intent)
+                }
+                item.itemId == R.id.student -> {
+                    val intent = Intent(this, Test1Activity::class.java)
+                    startActivity(intent)
+                }
+            }
+
+            item.isChecked = true
+
+            false
+
+        }
+
+        // Write a message to the database lat value
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("buses")
+
+        // Read from the database the bus location
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val lat = dataSnapshot.child("bus1").child("lat").value
+                        .toString().toDouble()
+                val lang = dataSnapshot.child("bus1").child("lang").value
+                        .toString().toDouble()
+
+                // Add a marker in bus location and move the camera
+                val bus = LatLng(lat, lang)
+                mMap.addMarker(MarkerOptions().position(bus).title("bus location"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 13.0f))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                /*// Failed to read value
+                Log.w(FragmentActivity.TAG, "Failed to read value.", error.toException())*/
+            }
+        })
     }
 
     /**
@@ -36,8 +86,8 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val amman = LatLng(32.003806, 34.952540)
+        mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(amman))
     }
 }

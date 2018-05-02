@@ -17,8 +17,7 @@ class TestActivity : AppCompatActivity() {
         bnv.setOnNavigationItemSelectedListener { item ->
             when {
                 item.itemId == R.id.bus -> {
-                    val intent = Intent(this, TestMapsActivity::class.java)
-                    startActivity(intent)
+
                 }
                 item.itemId == R.id.student -> {
                     val intent = Intent(this, Test1Activity::class.java)

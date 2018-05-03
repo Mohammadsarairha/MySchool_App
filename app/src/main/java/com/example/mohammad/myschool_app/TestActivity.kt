@@ -14,22 +14,6 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        bnv.setOnNavigationItemSelectedListener { item ->
-            when {
-                item.itemId == R.id.bus -> {
-
-                }
-                item.itemId == R.id.student -> {
-                    val intent = Intent(this, Test1Activity::class.java)
-                    startActivity(intent)
-                }
-            }
-
-            item.isChecked = true
-
-            false
-
-        }
 
     }
 }

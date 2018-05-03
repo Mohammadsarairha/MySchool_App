@@ -28,7 +28,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        bnv.setOnNavigationItemSelectedListener { item ->
+        /*bnv.setOnNavigationItemSelectedListener { item ->
             when {
                 item.itemId == R.id.bus -> {
                     val intent = Intent(this, AdminActivity::class.java)
@@ -44,7 +44,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
 
             false
 
-        }
+        }*/
 
         // Write a message to the database lat value
         val database = FirebaseDatabase.getInstance()

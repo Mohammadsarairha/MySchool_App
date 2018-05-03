@@ -28,7 +28,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        /*bnv.setOnNavigationItemSelectedListener { item ->
+        bnv.setOnNavigationItemSelectedListener { item ->
             when {
                 item.itemId == R.id.bus -> {
                     val intent = Intent(this, AdminActivity::class.java)
@@ -44,7 +44,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
 
             false
 
-        }*/
+        }
 
         // Write a message to the database lat value
         val database = FirebaseDatabase.getInstance()
@@ -86,8 +86,8 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val amman = LatLng(32.003806, 34.952540)
+        val amman = LatLng(31.944866, 35.929067)
         mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(amman))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 10.0f))
     }
 }

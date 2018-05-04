@@ -37,7 +37,7 @@
         <activity android:name=".StudentAct" />
         <activity
             android:name=".AdminActivity"
-            android:label="@string/title_activity_admin"></activity>
+            android:label="@string/title_activity_admin" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -48,6 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TestActivity"></activity>
     </application>
 
 </manifest>

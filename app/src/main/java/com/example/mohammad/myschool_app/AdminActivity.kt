@@ -63,7 +63,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 // Add a marker in bus location and move the camera
                 val bus = LatLng(lat, lang)
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 13.0f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 20.0f))
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -88,6 +88,6 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         val amman = LatLng(31.944866, 35.929067)
         mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 10.0f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 20.0f))
     }
 }

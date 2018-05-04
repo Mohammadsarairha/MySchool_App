@@ -18,10 +18,12 @@ class BusActivity : AppCompatActivity() {
         setContentView(R.layout.activity_bus)
 
         //Firebase reference
-        val firebaseRef = FirebaseDatabase.getInstance().getReference("buses")
+        val firebaseRef = FirebaseDatabase.getInstance()
+                .getReference("buses")
 
-        val locationManager = getSystemService(Context.LOCATION_SERVICE)
-                as LocationManager
+        val locationManager =
+                getSystemService(Context.LOCATION_SERVICE)
+                        as LocationManager
 
         val locationListener = object : LocationListener {
             override fun onLocationChanged(location: Location?) {

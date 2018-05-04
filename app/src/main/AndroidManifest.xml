@@ -37,17 +37,17 @@
         <activity android:name=".StudentAct" />
         <activity
             android:name=".AdminActivity"
-            android:label="@string/title_activity_admin">
+            android:label="@string/title_activity_admin"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".BusActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".BusActivity"></activity>
     </application>
 
 </manifest>

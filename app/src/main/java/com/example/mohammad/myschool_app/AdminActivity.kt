@@ -57,7 +57,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 // whenever data at this location is updated.
                 val lat = dataSnapshot.child("bus1").child("lat").value
                         .toString().toDouble()
-                val lang = dataSnapshot.child("bus1").child("lang").value
+                val lang = dataSnapshot.child("bus1").child("lng").value
                         .toString().toDouble()
 
                 // Add a marker in bus location and move the camera

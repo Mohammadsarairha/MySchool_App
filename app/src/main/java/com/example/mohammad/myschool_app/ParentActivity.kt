@@ -81,9 +81,9 @@ class ParentActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(32.003927, 35.952532)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val amman = LatLng(32.003927, 35.952532)
+        mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 17.0f))
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,

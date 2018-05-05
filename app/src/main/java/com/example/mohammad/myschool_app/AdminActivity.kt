@@ -1,11 +1,17 @@
 package com.example.mohammad.myschool_app
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.support.v7.app.AppCompatActivity
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
-
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -18,7 +24,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_admin.*
-import android.graphics.drawable.Drawable
+import kotlinx.android.synthetic.main.activity_bus.*
 
 
 class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -70,8 +76,15 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.clear()
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_name_bus)))
-
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 17.0f))
+                //check permission
+                if (ContextCompat.checkSelfPermission(this@AdminActivity,
+                                Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this@AdminActivity,
+                            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 123)
+                } else {
+                    mMap.isMyLocationEnabled = true
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -97,5 +110,18 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         val amman = LatLng(31.944866, 35.929067)
         mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 17.0f))
+
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
+                                            grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            123 -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
+
+            } else
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+        }
     }
 }

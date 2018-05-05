@@ -22,37 +22,6 @@ class BusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bus)
 
-        /*//Firebase reference
-        val firebaseRef = FirebaseDatabase.getInstance()
-                .getReference("buses")
-
-        val locationManager =
-                getSystemService(Context.LOCATION_SERVICE)
-                        as LocationManager
-
-        val locationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location?) {
-                textView1.text = "lat:  ${location?.latitude}"
-                textView2.text = "lng:  ${location?.longitude}"
-
-                firebaseRef.child("bus1").child("lat").setValue(location?.latitude)
-                firebaseRef.child("bus1").child("lng").setValue(location?.longitude)
-            }
-
-            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-            }
-
-            override fun onProviderEnabled(provider: String?) {
-            }
-
-            override fun onProviderDisabled(provider: String?) {
-            }
-        }
-
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
-                0.0F, locationListener)*/
-
-
         if (ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {

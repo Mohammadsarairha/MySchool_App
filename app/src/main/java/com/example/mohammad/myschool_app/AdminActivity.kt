@@ -49,7 +49,6 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
             item.isChecked = true
 
             false
-
         }
 
         // Write a message to the database lat value
@@ -71,6 +70,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.clear()
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_name_bus)))
+
                 //check permission
                 if (ContextCompat.checkSelfPermission(this@AdminActivity,
                                 Manifest.permission.ACCESS_FINE_LOCATION)
@@ -102,10 +102,9 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val amman = LatLng(31.944866, 35.929067)
+        val amman = LatLng(32.003927, 35.952532)
         mMap.addMarker(MarkerOptions().position(amman).title("Marker in amman"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(amman, 17.0f))
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,

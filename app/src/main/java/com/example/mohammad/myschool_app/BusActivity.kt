@@ -66,7 +66,6 @@ class BusActivity : AppCompatActivity() {
         when (requestCode) {
             123 -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
-
             } else
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
         }

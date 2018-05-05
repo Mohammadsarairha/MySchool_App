@@ -67,7 +67,8 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 // Add a marker in bus location and move the camera
                 val bus = LatLng(lat, lang)
-                mMap.addMarker(MarkerOptions().position(bus).title("bus location"))
+                mMap.addMarker(MarkerOptions().position(bus).title("bus location")
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_name_bus)))
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bus, 17.0f))
             }

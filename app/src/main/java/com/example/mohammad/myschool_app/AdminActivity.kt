@@ -40,7 +40,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
                     startActivity(intent)
                 }
                 item.itemId == R.id.student -> {
-                    val intent = Intent(this, StudentAct::class.java)
+                    val intent = Intent(this, BusActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -67,6 +67,7 @@ class AdminActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 // Add a marker in bus location and move the camera
                 val bus = LatLng(lat, lang)
+                mMap.clear()
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_name_bus)))
 

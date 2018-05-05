@@ -1,12 +1,8 @@
 package com.example.mohammad.myschool_app
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -24,7 +20,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_admin.*
-import kotlinx.android.synthetic.main.activity_bus.*
 
 
 class AdminActivity : AppCompatActivity(), OnMapReadyCallback {

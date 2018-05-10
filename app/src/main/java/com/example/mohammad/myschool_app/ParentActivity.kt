@@ -65,7 +65,6 @@ class ParentActivity : AppCompatActivity(), OnMapReadyCallback {
                 val distanceInMeters = homeLoc.distanceTo(busLoc)
                 textView.text = distanceInMeters.toString()
 
-
                 //check permission
                 if (ContextCompat.checkSelfPermission(this@ParentActivity,
                                 Manifest.permission.ACCESS_FINE_LOCATION)

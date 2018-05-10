@@ -2,6 +2,7 @@ package com.example.mohammad.myschool_app
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -18,6 +19,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_parent.*
 
 class ParentActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -49,6 +51,20 @@ class ParentActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.clear()
                 mMap.addMarker(MarkerOptions().position(bus).title("bus location")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_name_bus)))
+
+
+                //calculate distance between bus and home
+                val homeLoc = Location("")
+                homeLoc.latitude = 32.003895
+                homeLoc.longitude = 35.952535
+
+                val busLoc = Location("")
+                busLoc.latitude = 32.004661
+                busLoc.longitude = 35.950368
+
+                val distanceInMeters = homeLoc.distanceTo(busLoc)
+                textView.text = distanceInMeters.toString()
+
 
                 //check permission
                 if (ContextCompat.checkSelfPermission(this@ParentActivity,
@@ -97,4 +113,6 @@ class ParentActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 }
